@@ -1,0 +1,706 @@
+{
+  "missions": {
+    "Incursion": [
+      {
+        "name": "Crossfire",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Resupply",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Raid",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 3+",
+            "description": "Hold at least three objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Centre Ground",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Ascension",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Forward Push",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Rise of the Machine Spirit",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Show of Force",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Reconnaissance Mission",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      }
+      ],
+    "Strike Force": [
+      {
+        "name": "Retrieval Mission",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Scorched Earth",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Vital Intelligence",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Surround and Destroy",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Battle Lines",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "The Scouring",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 3+",
+            "description": "Hold at least three objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 2+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 2+"
+          }
+        ]
+      },{
+        "name": "Overrun",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 3+",
+            "description": "Hold at least three objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 2+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 2+"
+          }
+        ]
+      },{
+        "name": "Sweep and Clear",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },{
+        "name": "Priority Target",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      }
+    ]
+  },
+  "secondaries": [
+    {
+      "name": "Engage on All Fronts",
+      "category": "Battlefield Supremacy",
+      "description": "Score 2 victory points at the end of your turn if you have one or more units from your army wholly within three different table quarters, and those units are all more than 6\" from the centre of the battlefield. Score 3 victory points instead if you have one or more units from your army wholly within each table quarter, and those units are all more than 6\" from the centre of the battlefield.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Behind Enemy Lines",
+      "category": "Battlefield Supremacy",
+      "description": "Score 2 victory points at the end of your turn if one unit from your army (excluding AIRCRAFT units) is wholly within your opponent’s deployment zone. Score 4 victory points at the end of your turn instead if two or more units from your army (excluding AIRCRAFT units) are wholly within your opponent’s deployment zone.",
+      "increment": 2,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Stranglehold",
+      "category": "Battlefield Supremacy",
+      "description": "Score 3 victory points at the end of your turn if you control 3 or more objective markers and you also control more objective marker than your opponent controls.",
+      "increment": 3,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "No Prisoners",
+      "category": "No Mercy, No Respite",
+      "description": "If you select this objective, keep a tally of kill points. Each time an enemy model is destroyed, unless that model is a VEHICLE, MONSTER or CHARACTER, add a number of marks to this tally equal to the Wounds characteristic of the destroyed model. A model can, if it is resurrected for any reason (i.e. it was destroyed and subsequently returned to the battlefield), potentially have marks added to this tally several times (assuming it is resurrected and subsequently destroyed several times over). At the end of the battle, divide your kill points tally by 10 and round down - the result is the number of victory points you score.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Grind Them Down",
+      "category": "No Mercy, No Respite",
+      "description": "Score 3 victory points at the end of the battle round if more enemy units than friendly units were destroyed this battle round.",
+      "increment": 3,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "To The Last",
+      "category": "No Mercy, No Respite",
+      "description": "If you select this objective, then before the battle, after you have selected deployment zones, identify which three units from your army (excluding those with the Fortifications Battlefield Role) have the highest points value, and make a note of them on your army roster (if two or more are tied, you choose between them). If your army has three or fewer units, you instead identify all the units in your army. A unit’s points value includes the points of all weapons, other wargear and upgrades it has. You score 5 victory points for each of these units that are on the battlefield at the end of the battle. If a unit splits into several smaller units during a battle, all of those separate units (excluding DRONE units) must be on the battlefield at the end of the battle to score 5 victory points; if some of those separate units (excluding DRONE units) are on the battlefield at the end of the battle, but not all of them are, you score 3 victory points instead of 5.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Raise the Banners High",
+      "category": "Shadow Operations",
+      "description": "If you select this objective, then units in your army can perform the following action: Raise Banners (Action): One or more INFANTRY units from your army can start to perform this action at the end of your Movement phase. Each unit from your army that starts to perform this action must be in range of a different objective marker that does not have one of your banners raised upon it (see below). A unit cannot start this action while there are any enemy units (excluding AIRCRAFT) in range of the same objective marker. The action is completed at the end of your turn. If this action is successfully completed, that objective marker is said to have one of your army’s banners raised on it (the banner is ‘removed’ if your opponent controls the objective marker at the start of any phase). Score 1 victory point at the end of each of your Command phases, and 1 victory point at the end of the battle, for each objective marker on the battlefield that has one of your banners raised upon it.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Investigate Signal",
+      "category": "Shadow Operations",
+      "description": "Score 3 victory points each time a unit from your army successfully completes the following action: \n\nInvestigate Signal (Action): One INFANTRY unit (excluding CHARACTER units) from your army can start to perform this action at the end of your Movement phase if it is wholly within 6\" of the centre of the battlefield and no enemy units (excluding AIRCRAFT units) are wholly within 6\" of the centre of the battlefield. This action is completed at the end of your turn provided the unit attempting it is still wholly within 6\" of the centre of the battlefield and no enemy units (excluding AIRCRAFT units) are wholly within 6\" of the centre of the battlefield.",
+      "increment": 3,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Retrieve Octarius Data",
+      "category": "Shadow Operations",
+      "description": "If you select this objective, keep a tally of Retrieved Data points; add 1 to that tally each time a unit from your army successfully completes the following action during the battle:\n\nRetrieve Data (Action): One INFANTRY unit (excluding CHARACTER units) from your army can start to perform this action at the end of your Movement phase if it is wholly within a table quarter that has not had a servo-skull retrieved by your army (see below) and it is more then 6\" away from any other table quarter. This action is completed at the end of your turn provided the unit attempting it is still within the same table quarter. If this action is successfully completed, the table quarter is said to have had a servo-skull retrieved by your army. \n\nAt the end of the battle, score 4 victory points if your Retrieved Data tally is 2, score 8 victory points if your tally is 3, or score 12 victory points if your tally is 4.",
+      "increment": 4,
+      "max": 12,
+      "type": "incremental"
+    },
+    {
+      "name": "Deploy Teleport Homers",
+      "category": "Shadow Operations",
+      "description": "If you select this objective, then units from your army can perform the following action: \n\n Deploy Teleport Homer (Action): One INFANTRY or BIKER unit from your army can start to perform this action at the end of your Movement phase if it is wholly within 12\" of your opponent’s deployment zone. The action is completed at the end of your next Command phase provided the unit attempting it is still wholly within 12\" of your opponent’s deployment zone.  \n\n Each time a unit from your army successfully completes this action, you score 2 victory points (you score 4 victory points instead if the unit completed the action while wholly within your opponent’s deployment zone).",
+      "increment": 2,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Assassination",
+      "category": "Purge the Enemy",
+      "description": "Score 3 victory points at the end of the battle for each enemy CHARACTER model that is destroyed. If the enemy WARLORD was destroyed during the battle, gain 1 additional victory point.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Titan Hunter",
+      "category": "Purge the Enemy",
+      "description": "Score 4 victory points at the end of the battle if one enemy TITANIC model is destroyed, 9 victory points if two enemy TITANIC models are destroyed, or 15 victory points if three or more enemy TITANIC models are destroyed.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Bring It Down",
+      "category": "Purge the Enemy",
+      "description": "Score 1 victory point at the end of the battle for each enemy MONSTER or VEHICLE model with a Wounds characteristic of 10 or less that is destroyed, 2 victory points for each enemy MONSTER or VEHICLE model with a Wounds characteristic of between 11-19 that is destroyed, and 3 victory points for each enemy MONSTER or VEHICLE model with a Wounds characteristic of 20 or more that is destroyed.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Abhor the Witch",
+      "category": "Warpcraft",
+      "description": "You cannot select this secondary objective if your army includes any PSYKER units. Score 3 victory points at the end of the battle for each enemy PSYKER CHARACTER unit that is destroyed, and 2 victory points for every other enemy PSYKER unit that is destroyed.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Warp Ritual",
+      "category": "Warpcraft",
+      "description": "If you select this objective, keep a tally of Ritual points; add 1 to that tally each time a unit from your army successfully completes the following psychic action during the battle:\n\n Warp Ritual (Psychic Action - Warp Charge 3): One PSYKER CHARACTER unit from your army can attempt to perform this psychic action in your Psychic phase if it is within 6\" of the centre of the battlefield.\n\n At the end of the battle, score 3 victory points if your Ritual tally is 1, score 7 victory points if your tally is 2, or score 12 victory points if your tally is 3 or more.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Pierce the Veil",
+      "category": "Warpcraft",
+      "description": "Score 8 victory points at the end of the battle if one or more units from your army successfully completed the following psychic action 2 or more times during the battle, or 15 victory points at the end of the battle if one or more units from your army successfully completed the following psychic action 4 times during the battle (note that you can only score this objective once): \n\nPierce the Veil (Psychic Action - Warp Charge 4): One PSYKER CHARACTER unit from your army can attempt to perform this psychic action during your Psychic phase if it is within 6\" of your opponent’s battlefield edge and more than 6\" from any enemy models.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Psychic Interrogation",
+      "category": "Warpcraft",
+      "description": "Score 3 victory points each time you successfully complete the following psychic action:\n\nPsychic Interrogation (Psychic Action - Warp Charge 4): One PSYKER CHARACTER unit from your army can attempt to perform this psychic action in your Psychic phase if it is within 24\" of any visible enemy CHARACTER models.",
+      "increment": 1,
+      "max": 15,
+      "type": "incremental"
+    }
+  ]
+}
