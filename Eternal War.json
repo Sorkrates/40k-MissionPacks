@@ -1,6 +1,168 @@
 {
   "missions": {
+    "Combat Patrol": [
+      {
+        "name": "Incisive Attack",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "secondary": {
+          "name": "Surgical Assault",
+          "category": "Mission",
+          "description": "Score 5 victory points if you control the objective marker in your opponent’s deployment zone at the end of your turn.",
+          "increment": 5,
+          "max": 15,
+          "type": "incremental"
+        },
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },
+      {
+        "name": "Outriders",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "secondary": {
+          "name": "Survey",
+          "category": "Mission",
+          "description": "Score 5 victory points if you control both of the objective markers that are not in either player’s deployment zone at the end of your Command phase. This secondary objective cannot be scored in the first battle round.",
+          "increment": 5,
+          "max": 15,
+          "type": "incremental"
+        },
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },
+      {
+        "name": "Encircle",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "secondary": {
+          "name": "Encircle",
+          "category": "Mission",
+          "description": "Score 3 victory points if you have at least one unit from your army (excluding AIRCRAFT) wholly within 6\" of your battlefield edge and at least one unit from your army (excluding AIRCRAFT) wholly within 6\" of your opponent's battlefield edge at the end of your turn (score 5 victory points instead if one of these units is also wholly within your opponent’s deployment zone).",
+          "increment": 5,
+          "max": 15,
+          "type": "incremental"
+        },
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      }
+    ],
     "Incursion": [
+      {
+        "name": "Divide and Conquer",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "secondary": {
+          "name": "Lines of Demarkation",
+          "category": "Mission",
+          "description": "At the end of your turn, you score 4 victory points if you control both objective markers labelled A, or 2 victory points if you control both objective markers labelled B.",
+          "increment": 2,
+          "max": 15,
+          "type": "incremental"
+        },
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },
       {
         "name": "Crossfire",
         "max": 45,
@@ -42,55 +204,15 @@
         ]
       },
       {
-        "name": "Resupply",
+        "name": "Center Ground",
         "max": 45,
         "maxEachRound": 15,
         "firstScorableTurn": 2,
         "maxRounds": 5,
         "secondary": {
-          "name": "Secure Landing Sites",
+          "name": "Center Ground",
           "category": "Mission",
-          "description": "Score a number of victory points at the end of your Command phase for each objective marker labelled A that you control, as shown in the table below (note that the victory points scored changes depending upon the battle round number):\n\n2: 2, 3: 2, 4: 3, 5: 6",
-          "increment": 1,
-          "max": 15,
-          "type": "incremental"
-        },
-        "objectives": [
-          {
-            "name": "Hold 1+",
-            "description": "Hold at least one objective",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2
-          },
-          {
-            "name": "Hold 2+",
-            "description": "Hold at least two objectives",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          },
-          {
-            "name": "Hold More",
-            "description": "Hold more objectives than  your opponent",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          }
-        ]
-      },
-      {
-        "name": "Raid",
-        "max": 45,
-        "maxEachRound": 15,
-        "firstScorableTurn": 2,
-        "maxRounds": 5,
-        "secondary": {
-          "name": "Raid Supply Lines",
-          "category": "Mission",
-          "description": "At the end of each of your Command phases, you score 3 victory points if you control one of the objective markers that is in your opponent’s deployment zone, or 5 victory points if you control both of the objective markers that are in your opponent’s deployment zone. This secondary objective cannot be scored in the first battle round.",
+          "description": "Each time a unit from your army successfully completes the following action, you score 3 victory points if you currently control one of the objective markers labelled A, or 5 victory points if you currently control both objective markers labelled A:\n\nCentre Ground (Action): One unit from your army can start to perform this action at the end of your Movement phase if it is within range of an objective marker labelled A and no enemy units (excluding AIRCRAFT) are within range of that objective marker. The action is completed at the end of your next Command phase so long as the unit performing it is still within range of the same objective marker.",
           "increment": 1,
           "max": 15,
           "type": "incremental"
@@ -122,86 +244,6 @@
         ]
       },
       {
-        "name": "Centre Ground",
-        "max": 45,
-        "maxEachRound": 15,
-        "firstScorableTurn": 2,
-        "maxRounds": 5,
-        "secondary": {
-          "name": "Centre Ground",
-          "category": "Mission",
-          "description": "Each time a unit from your army successfully completes the following action, you score 3 victory points if you currently control one of the objective markers labelled A, or 5 victory points if you currently control both objectie markers labelled A:\n\nCentre Ground (Action): One unit from your army can start to perform this action at the end of your Movement phase if it is within range of an objective marker labelled A and no enemy units (excluding AIRCRAFT) are within range of that objective marker. The action is completed at the end of your next Command phase, so long as the unit performing it is still within range of the same objective marker.",
-          "increment": 1,
-          "max": 15,
-          "type": "incremental"
-        },
-        "objectives": [
-          {
-            "name": "Hold 1+",
-            "description": "Hold at least one objective",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2
-          },
-          {
-            "name": "Hold 2+",
-            "description": "Hold at least two objectives",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          },
-          {
-            "name": "Hold More",
-            "description": "Hold more objectives than  your opponent",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          }
-        ]
-      },
-      {
-        "name": "Ascension",
-        "max": 45,
-        "maxEachRound": 15,
-        "firstScorableTurn": 2,
-        "maxRounds": 5,
-        "secondary": {
-          "name": "Centre Ground",
-          "category": "Mission",
-          "description": "At the end of each of your turns, if you control the central objective marker you score a number of victory points equal to the current battle round number (so 1 victory point in the first battle round, 2 victory points in the second battle round, etc.). In addition, at the end of each of your turns you score 1 victory point if your WARLORD is within range of the central objective marker.",
-          "increment": 1,
-          "max": 15,
-          "type": "incremental"
-        },
-        "objectives": [
-          {
-            "name": "Hold 1+",
-            "description": "Hold at least one objective",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2
-          },
-          {
-            "name": "Hold 2+",
-            "description": "Hold at least two objectives",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          },
-          {
-            "name": "Hold More",
-            "description": "Hold more objectives than  your opponent",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          }
-        ]
-      },
-      {
         "name": "Forward Push",
         "max": 45,
         "maxEachRound": 15,
@@ -210,7 +252,7 @@
         "secondary": {
           "name": "Forward Push",
           "category": "Mission",
-          "description": "If you select this objective, then units in your army can perform the following action:\n\nForward Push (Action): One unit from your army can start to perform this action at the start of your Movement phase if it is within range of an objective marker that you control. The action is completed at the end of your turn and you score a number of victory points depending on which objective marker this action was performed on: Objective Marker A: (Player A: 1, Player B: 8), Objective Marker B: (Player A: 2, Player B: 4), Objective Marker C: (Player A: 4, Player B: 2), Objective Marker 4: (Player A: 8, Player B: 1)",
+          "description": "If you select this objective, then units in your army can perform the following action:\n\nForward Push (Action): One unit from your army can start to perform this action at the start of your Movement phase if it is within range of an objective marker that you control. The action is completed at the end of your turn and you score a number of victory points depending on which objective marker this action was performed on: \nObjective A: Player A 1, Player B 8 \nObjective B: Player A 2, Player B 4\nObjective C: Player A 4, Player B 2\nObjective D: Player A 8, Player B 1",
           "increment": 1,
           "max": 15,
           "type": "incremental"
@@ -242,34 +284,34 @@
         ]
       },
       {
-        "name": "Rise of the Machine Spirit",
+        "name": "Ransack",
         "max": 45,
         "maxEachRound": 15,
         "firstScorableTurn": 2,
         "maxRounds": 5,
         "secondary": {
-          "name": "Inload Data Psalm",
+          "name": "Ransack",
           "category": "Mission",
-          "description": "If you select this objective, then units in your army can perform the following action:\n\nInload Data-psalm (Action): One or more units from your perform this action at the end of your Movement phase. Each unit that starts to perform this action must be within range of a different objective marker. A unit cannot start this action while any enemy units (excluding AIRCRAFT) are in range of the same objective marker. This action is completed at the end of your next Command phase, and you score a number of victory points depending on how many units completed this action this phase, as shown in the table below:\n\n1: 1, 2: 3, 3: 6, 4: 10",
+          "description": "Score a number of victory points at the end of your Command phase if you control one or more of the objective markers that are within your opponent's territory, as shown in the table below: 1: 2, 2: 3, 3: 5",
           "increment": 1,
           "max": 15,
           "type": "incremental"
         },
         "objectives": [
           {
-            "name": "Hold 1+",
-            "description": "Hold at least one objective",
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
             "value": 5,
             "type": "fixed",
             "firstScorableTurn": 2
           },
           {
-            "name": "Hold 2+",
+            "name": "Hold 3+",
             "description": "Hold at least two objectives",
             "value": 5,
             "type": "fixed",
             "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
+            "dependsOn": "Hold 2+"
           },
           {
             "name": "Hold More",
@@ -277,61 +319,21 @@
             "value": 5,
             "type": "fixed",
             "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
+            "dependsOn": "Hold 2+"
           }
         ]
       },
       {
-        "name": "Show of Force",
+        "name": "Shifting Front",
         "max": 45,
         "maxEachRound": 15,
         "firstScorableTurn": 2,
         "maxRounds": 5,
         "secondary": {
-          "name": "Minimize Losses",
+          "name": "Test Their Line",
           "category": "Mission",
-          "description": "At the start of the battle, add up the number of units in your army - this is your army’s Strength. If a unit splits to form two or more individual units during the battle, then immediately increase your army’s Strength accortlingly (e.g. if one unit in your army splits to form three individual units, your army’s Strength is increased by 2). If a unit merges with another to form a combined unit during the battle, then decrease your army’s Strength accordingly (e.g. if two units from your army merge to form one unit, you immediately decrease your army’s Strength by 1).\n\nAt the end of the battle, add up how many units from your army are left on the battlefield, including all units embarked within TRANSPORTS, but excluding all units that have been added to your army during the battle. If the total is 75% or more of your army’s Strength, score 15 victory points; if the total is less than 75%, but is 50% or more of your army’s Strength, score 10 victory points; if the total is less than 50%, but is 25% or more of your army’s Strength, score 5 victory points.",
-          "increment": 1,
-          "max": 15,
-          "type": "incremental"
-        },
-        "objectives": [
-          {
-            "name": "Hold 1+",
-            "description": "Hold at least one objective",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2
-          },
-          {
-            "name": "Hold 2+",
-            "description": "Hold at least two objectives",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          },
-          {
-            "name": "Hold More",
-            "description": "Hold more objectives than  your opponent",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          }
-        ]
-      },
-      {
-        "name": "Reconnaissance Mission",
-        "max": 45,
-        "maxEachRound": 15,
-        "firstScorableTurn": 2,
-        "maxRounds": 5,
-        "secondary": {
-          "name": "Recon Sweep",
-          "category": "Mission",
-          "description": "f you select this objective, then units in your army can perform the following action:\n\nRecon Sweep (Action): One unit from your army can start to perform this action at the start of your Movement phase, if it is wholly within a table quarter that has not already been reconnoitred by a unit from your army and it is more than 9\" from the centre of the battlefield. The action is completed at the end of your turn and, provided the unit is still wholly within that table quarter, that table quarter is said to have been reconnoitred by your forces. You score a number of victory points for the number of table quarters that have been reconnoitred by your forces by the end of the battle, as shown below:1: 3, 2: 6, 3: 10, 4: 15\n",
-          "increment": 1,
+          "description": "Score 3 victory points at the end of your turn if two or more units from your army (excluding AIRCRAFT) are wholly within your opponent's deployment zone and at least two different battlefield edges have at least one of those units wholly within 6\" of them (if one of those battlefield edges is your opponent's battlefield edge, score 5 victory points instead). For the purposes of this objective, a unit can only count as being wholly within 6\" of one battlefield edge at a time - if a unit is within 6\" of two battlefield edges because it is in the corner of the battlefield, you can select which battlefield edge it counts as being wholly within 6\" of at the end of your turn.",
+          "increment": 3,
           "max": 15,
           "type": "incremental"
         },
@@ -372,7 +374,127 @@
         "secondary": {
           "name": "Minimize Losses",
           "category": "Mission",
-          "description": "At the start of the battle, add up the number of units in your army - this is your army’s Strength. If a unit splits to form two or more individual units during the battle, then immediately increase your army’s Strength accortlingly (e.g. if one unit in your army splits to form three individual units, your army’s Strength is increased by 2). If a unit merges with another to form a combined unit during the battle, then decrease your army’s Strength accordingly (e.g. if two units from your army merge to form one unit, you immediately decrease your army’s Strength by 1).\n\nAt the end of the battle, add up how many units from your army are left on the battlefield, including all units embarked within TRANSPORTS, but excluding all units that have been added to your army during the battle. If the total is 75% or more of your army’s Strength, score 15 victory points; if the total is less than 75%, but is 50% or more of your army’s Strength, score 10 victory points; if the total is less than 50%, but is 25% or more of your army’s Strength, score 5 victory points.\n",
+          "description": "At the start of the battle, add up the number of units in your army — this is your army’s Strength. If a unit splits to form two or more individual units during the battle, then immediately increase your army’s Strength accordingly (e.g. if one unit in your army splits to form three individual units, your army’s Strength is increased by 2). If a unit merges with another to form a combined unit during the battle, then decrease your army’s strength accordingly (e.g. if two units from your army merge to form one unit, you immediately decrease your army’s strength by 1).\n\nAt the end of the battle, add up how many units from your army are left on the battlefield, including all units embarked within TRANSPORTS, but excluding all units that have been added to your army during the battle. If the total is 75% or more of your army’s Strength, score 15 victory points; if the total is less than 75%, but is 50% or more of your army's Strength, score 10 victory points; if the total is less than 50%, but is 25% or more of your army's Strength, score 5 victory points.",
+          "increment": 1,
+          "max": 15,
+          "type": "incremental"
+        },
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },
+      {
+        "name": "Front-Line Warfare",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "secondary": {
+          "name": "Vital Ground",
+          "category": "Mission",
+          "description": "At the end of each of your Command phases, you score 3 victory points if you control the objective marker in your opponent's deployment zone, and score 2 victory points for each objective marker that you control that is not in either player’s deployment zone (for a maximum of 7 victory points). This secondary objective cannot be scored in the first battle round.",
+          "increment": 1,
+          "max": 15,
+          "type": "incremental"
+        },
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },
+      {
+        "name": "The Four Pillars",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "secondary": {
+          "name": "Siphon Power",
+          "category": "Mission",
+          "description": "If you select this objective, units in your army can perform the following action:\n\nSiphon Power (Action): One or more units from your army can start to perform this action at the end of your Movement phase. Each unit that starts to perform this action must be within range of a different objective marker. A unit cannot start this action while any enemy units (excluding AIRCRAFT) are in range of the same objective marker. The action is completed at the end of your next Command phase, and you score a number of victory points depending on how many units completed this action this phase, as shown in the table below:\n1: 1, 2: 3, 3: 6, 4: 10",
+          "increment": 1,
+          "max": 15,
+          "type": "incremental"
+        },
+        "objectives": [
+          {
+            "name": "Hold 1+",
+            "description": "Hold at least one objective",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 1+"
+          }
+        ]
+      },
+      {
+        "name": "No Man's Land",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "secondary": {
+          "name": "No Man's Land",
+          "category": "Mission",
+          "description": "At the end of each of your turns, if you control the central objective marker you score a number of victory points equal to the current battle round number (so 1 victory point in the first battle round, 2 victory points in the second battle round etc.).",
           "increment": 1,
           "max": 15,
           "type": "incremental"
@@ -412,9 +534,9 @@
         "secondary": {
           "name": "Raze",
           "category": "Mission",
-          "description": "At the end of the battle, a player scores 6 victory points if one objective marker was removed from the battlefield due to a successful Raze Objective action performed by a unit from their army during the battle, and 12 victory point if two objective markers were so removed.\n",
-          "increment": 6,
-          "max": 12,
+          "description": "At the end of the battle, a player scores 5 victory points if one objective marker was removed from the battlefield due to a successful Raze Objective action performed by a unit from their army during the battle, and 15 victory points if two objective markers were so removed.\n\nRaze Objective (Action): One unit from your army can start to perform this action at the start of your Movement phase if it is within range of an objective marker that can be razed and no enemy units (excluding AIRCRAFT) are within range of that objective marker. Player A can only attempt to raze the objective markers labelled B, and player B can only attempt to raze the objective markers labelled A. The action is completed at the end of your turn. If this action is successfully completed, that objective marker is razed and removed from the battlefield.",
+          "increment": 5,
+          "max": 15,
           "type": "incremental"
         },
         "objectives": [
@@ -452,8 +574,50 @@
         "secondary": {
           "name": "Data Intercept",
           "category": "Mission",
-          "description": "Each time a unit from your army successfully completes the following action, you score a number of victory points equal to the number of objective markers you currently control:\n\nData Intercept (Action): One unit from your army can start to perform this action at the end of your Movement phase if it is within range of an objective marker and no enemy units (excluding AIRCRAFT) are within range of that objective marker. This action is completed at the end of your next Command phase, so long as the unit performing it is still within range of the same objective marker.\n",
+          "description": "Each time a unit from your army successfully completes the following action, you score a number of victory points equal to the number of objective markers you currently control:\n\nData Intercept (Action): One unit from your army can start to perform this action at the end of your Movement phase if it is within range of an objective marker and no enemy units (excluding AIRCRAFT) are within range of that objective marker. The action is completed at the end of your next Command phase so long as the unit performing it is still within range of the same objective marker.",
           "increment": 1,
+          "max": 15,
+          "type": "incremental"
+        },
+        "objectives": [
+          {
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2
+          },
+          {
+            "name": "Hold 3+",
+            "description": "Hold at least three objectives",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 2+"
+          },
+          {
+            "name": "Hold More",
+            "description": "Hold more objectives than  your opponent",
+            "value": 5,
+            "type": "fixed",
+            "firstScorableTurn": 2,
+            "dependsOn": "Hold 2+"
+          }
+        ]
+      }
+    ],
+    "Onslaught": [
+      {
+        "name": "Lines of Battle",
+        "max": 45,
+        "maxEachRound": 15,
+        "firstScorableTurn": 2,
+        "maxRounds": 5,
+        "secondary": {
+          "name": "Hold the Cetner",
+          "category": "Mission",
+          "description": "Score 5 victory points at the end of your Command phase if you control more objective markers labelled B than your opponent does and you have more models wholly within 12\" of the centre of the battlefield than your opponent does. This secondary objective cannot be scored in the first battle round.",
+          "increment": 5,
           "max": 15,
           "type": "incremental"
         },
@@ -484,7 +648,7 @@
         ]
       },
       {
-        "name": "Surround and Destroy",
+        "name": "All-Out Battle",
         "max": 45,
         "maxEachRound": 15,
         "firstScorableTurn": 2,
@@ -492,26 +656,26 @@
         "secondary": {
           "name": "Surround Them",
           "category": "Mission",
-          "description": "Score 4 victory points at the end of your Command phase, and at the end of the battle if you control both the objective markers in your deployment zone and one or more objective markers in your opponent’s deployment zone. Score 8 victory points instead if you control all four objective markers that are in deployment zones.\n",
+          "description": "Score 4 victory points at the end of your Command phase and at the end of the battle if you control both the objective markers in your deployment zone and one or more objective markers in your opponent's deployment zone. Score 8 victory points instead if you control all four objective markers that are in deployment zones.",
           "increment": 4,
           "max": 15,
           "type": "incremental"
         },
         "objectives": [
           {
-            "name": "Hold 1+",
-            "description": "Hold at least one objective",
+            "name": "Hold 2+",
+            "description": "Hold at least two objectives",
             "value": 5,
             "type": "fixed",
             "firstScorableTurn": 2
           },
           {
-            "name": "Hold 2+",
-            "description": "Hold at least two objectives",
+            "name": "Hold 3+",
+            "description": "Hold at least three objectives",
             "value": 5,
             "type": "fixed",
             "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
+            "dependsOn": "Hold 2+"
           },
           {
             "name": "Hold More",
@@ -519,60 +683,20 @@
             "value": 5,
             "type": "fixed",
             "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
+            "dependsOn": "Hold 2+"
           }
         ]
       },
       {
-        "name": "Battle Lines",
+        "name": "Pathway to Glory",
         "max": 45,
         "maxEachRound": 15,
         "firstScorableTurn": 2,
         "maxRounds": 5,
         "secondary": {
-          "name": "Vital Ground",
+          "name": "Search for the Portal",
           "category": "Mission",
-          "description": "At the end of each of your Command phases, you score 3 victory points if you control the objective marker in your opponent’s deployment zone, and score 2 victory points for each objective marker that you control that is not in either player’s deployment zone (for a maximum of 7 victory points). This secondary objective cannot be scored in the first battle round.",
-          "increment": 1,
-          "max": 15,
-          "type": "incremental"
-        },
-        "objectives": [
-          {
-            "name": "Hold 1+",
-            "description": "Hold at least one objective",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2
-          },
-          {
-            "name": "Hold 2+",
-            "description": "Hold at least two objectives",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          },
-          {
-            "name": "Hold More",
-            "description": "Hold more objectives than  your opponent",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          }
-        ]
-      },
-      {
-        "name": "The Scouring",
-        "max": 45,
-        "maxEachRound": 15,
-        "firstScorableTurn": 2,
-        "maxRounds": 5,
-        "secondary": {
-          "name": "Strategic Scan",
-          "category": "Mission",
-          "description": "If you select this objective, then units in your army can perform the following action:\n\nStrategic Scan(Action): One or more units from your army can start to perform this action at the end of your Movement phase. Each unit from your army that starts to perform this action must be in range of a different objective marker that has not already been scanned by a unit from your army (see below). A unit cannot start this action while there are any enemy units (excluding AIRCRAFT) in range of the same objective marker. This action is completed at the start of your next Command phase, or at the end of the battle (whichever happens first). If this action is successfully completed, that objective marker is said to have been scanned by your army. You score a number of victory points at the end of the battle depending on how many times units from your army completed this action this battle, as shown in the table below:\n\n1: 3, 2: 6, 3: 10, 4+: 15",
+          "description": "Each time a unit from your army successfully completes the Search for the Portal action (see below) you score 1 victory point, plus 1 additional victory point for each objective marker labelled A that is currently under your control (for a maximum of 5 victory points).\n\nSearch for the Portal (Action): One INFANTRY unit from your army (excluding CHARACTERS) can start to perform this action at the end of your Movement phase if it is wholly within the Search Area shown on the deployment map. The action is completed at the end of your next Command phase so long as the unit performing it is still wholly within the Search Area.",
           "increment": 1,
           "max": 15,
           "type": "incremental"
@@ -600,126 +724,6 @@
             "type": "fixed",
             "firstScorableTurn": 2,
             "dependsOn": "Hold 2+"
-          }
-        ]
-      },
-      {
-        "name": "Overrun",
-        "max": 45,
-        "maxEachRound": 15,
-        "firstScorableTurn": 2,
-        "maxRounds": 5,
-        "secondary": {
-          "name": "Overrun",
-          "category": "Mission",
-          "description": "Score a number of victory points at the end of your Command phase if you control one or more of the objective markers that are within your opponent’s territory, as shown in the table below:\n\n1: 2, 2: 3, 3: 5",
-          "increment": 1,
-          "max": 15,
-          "type": "incremental"
-        },
-        "objectives": [
-          {
-            "name": "Hold 2+",
-            "description": "Hold at least two objectives",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2
-          },
-          {
-            "name": "Hold 3+",
-            "description": "Hold at least three objectives",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 2+"
-          },
-          {
-            "name": "Hold More",
-            "description": "Hold more objectives than  your opponent",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 2+"
-          }
-        ]
-      },
-      {
-        "name": "Sweep and Clear",
-        "max": 45,
-        "maxEachRound": 15,
-        "firstScorableTurn": 2,
-        "maxRounds": 5,
-        "secondary": {
-          "name": "Direct Assault",
-          "category": "Mission",
-          "description": "Score 3 victory points if you control either the objective marker in the centre of the battlefield or the objective marker in your opponent’s deployment zone at the end of your turn, or 5 victory points if you control both of these objective markers at the end of your turn.",
-          "increment": 1,
-          "max": 15,
-          "type": "incremental"
-        },
-        "objectives": [
-          {
-            "name": "Hold 1+",
-            "description": "Hold at least one objective",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2
-          },
-          {
-            "name": "Hold 2+",
-            "description": "Hold at least two objectives",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          },
-          {
-            "name": "Hold More",
-            "description": "Hold more objectives than  your opponent",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          }
-        ]
-      },
-      {
-        "name": "Priority Target",
-        "max": 45,
-        "maxEachRound": 15,
-        "firstScorableTurn": 2,
-        "maxRounds": 5,
-        "secondary": {
-          "name": "Priority Targets",
-          "category": "Mission",
-          "description": "Score 3 victory points if you control either of the Priority Objective Markers (see above) at the end of your turn, or 5 victory points if you control both of these objective markers at the end of your turn.",
-          "increment": 1,
-          "max": 15,
-          "type": "incremental"
-        },
-        "objectives": [
-          {
-            "name": "Hold 1+",
-            "description": "Hold at least one objective",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2
-          },
-          {
-            "name": "Hold 2+",
-            "description": "Hold at least two objectives",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
-          },
-          {
-            "name": "Hold More",
-            "description": "Hold more objectives than  your opponent",
-            "value": 5,
-            "type": "fixed",
-            "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
           }
         ]
       }
@@ -735,43 +739,51 @@
       "type": "incremental"
     },
     {
-      "name": "Behind Enemy Lines",
+      "name": "Linebreaker",
       "category": "Battlefield Supremacy",
-      "description": "Score 2 victory points at the end of your turn if one unit from your army (excluding AIRCRAFT units) is wholly within your opponent’s deployment zone. Score 4 victory points at the end of your turn instead if two or more units from your army (excluding AIRCRAFT units) are wholly within your opponent’s deployment zone.",
-      "increment": 2,
+      "description": "Score 4 victory points at the end of your turn if two or more units from your army (excluding AIRCRAFT) are wholly within your opponent's deployment zone.",
+      "increment": 4,
       "max": 15,
       "type": "incremental"
     },
     {
-      "name": "Stranglehold",
+      "name": "Domination",
       "category": "Battlefield Supremacy",
-      "description": "Score 3 victory points at the end of your turn if you control 3 or more objective markers and you also control more objective marker than your opponent controls.",
+      "description": "Score 3 victory points if you control more than half the total number of objective markers on the battlefield at the end of your turn.",
       "increment": 3,
       "max": 15,
       "type": "incremental"
     },
     {
-      "name": "No Prisoners",
+      "name": "Thin Their Ranks",
       "category": "No Mercy, No Respite",
-      "description": "If you select this objective, keep a tally of kill points. Each time an enemy model is destroyed, unless that model is a VEHICLE, MONSTER or CHARACTER, add a number of marks to this tally equal to the Wounds characteristic of the destroyed model. A model can, if it is resurrected for any reason (i.e. it was destroyed and subsequently returned to the battlefield), potentially have marks added to this tally several times (assuming it is resurrected and subsequently destroyed several times over). At the end of the battle, divide your kill points tally by 10 and round down - the result is the number of victory points you score.",
+      "description": "If you select this objective, keep a tally of kill points; each time an enemy model is destroyed, add 1 to this tally (add 10 to this tally instead if the model that was destroyed had a Wounds characteristic of 10 or more). A model can, if it is resurrected for any reason (i.e. it was destroyed and subsequently returned to the battlefield), potentially add several points to this tally (assuming it is resurrected and subsequently destroyed several times over). At the end of the battle, divide your kill points tally by 10 and round down - the result is the number of victory points you score.",
       "increment": 1,
       "max": 15,
       "type": "incremental"
     },
     {
-      "name": "Grind Them Down",
+      "name": "Attrition",
       "category": "No Mercy, No Respite",
-      "description": "Score 3 victory points at the end of the battle round if more enemy units than friendly units were destroyed this battle round.",
-      "increment": 3,
+      "description": "Score 4 victory points at the end of the battle round if more enemy units than friendly units were destroyed this battle round.",
+      "increment": 4,
       "max": 15,
       "type": "incremental"
     },
     {
-      "name": "To The Last",
+      "name": "While We Stand, We Fight",
       "category": "No Mercy, No Respite",
-      "description": "If you select this objective, then before the battle, after you have selected deployment zones, identify which three units from your army (excluding those with the Fortifications Battlefield Role) have the highest points value, and make a note of them on your army roster (if two or more are tied, you choose between them). If your army has three or fewer units, you instead identify all the units in your army. A unit’s points value includes the points of all weapons, other wargear and upgrades it has. You score 5 victory points for each of these units that are on the battlefield at the end of the battle. If a unit splits into several smaller units during a battle, all of those separate units (excluding DRONE units) must be on the battlefield at the end of the battle to score 5 victory points; if some of those separate units (excluding DRONE units) are on the battlefield at the end of the battle, but not all of them are, you score 3 victory points instead of 5.",
+      "description": "If you select this objective, then before the battle you must identify which three units from your army (excluding models with the Fortifications Battlefield Role) have the highest points value, and make a note of them on your army roster (if two or more units are tied, you can choose between them). If your army has three or fewer units, then you instead identify all the units in your army. A unit’s points cost includes the points of all weapons and wargear it is equipped with. You score 5 victory points for each of these units that are on the battlefield at the end of the battle. If a unit splits into several smaller units during the battle, all of those separate units (excluding DRONES units) must be destroyed for the original unit to count as being destroyed for the purposes of this secondary objective.",
       "increment": 1,
       "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "First Strike",
+      "category": "No Mercy, No Respite",
+      "description": "Score 5 victory points at the end of the battle if any enemy units were destroyed in the first battle round, and score an additional 3 victory points if more enemy units than friendly units were destroyed in the first battle round.",
+      "increment": 1,
+      "max": 8,
       "type": "incremental"
     },
     {
@@ -783,19 +795,19 @@
       "type": "incremental"
     },
     {
-      "name": "Investigate Signal",
+      "name": "Investigate Sites",
       "category": "Shadow Operations",
-      "description": "Score 3 victory points each time a unit from your army successfully completes the following action: \n\nInvestigate Signal (Action): One INFANTRY unit (excluding CHARACTER units) from your army can start to perform this action at the end of your Movement phase if it is wholly within 6\" of the centre of the battlefield and no enemy units (excluding AIRCRAFT units) are wholly within 6\" of the centre of the battlefield. This action is completed at the end of your turn provided the unit attempting it is still wholly within 6\" of the centre of the battlefield and no enemy units (excluding AIRCRAFT units) are wholly within 6\" of the centre of the battlefield.",
+      "description": "Score 3 victory points each time a unit from your army successfully completes the following action: \n\nInvestigate Site (Action): One INFANTRY unit (excluding CHARACTER units) from your army can start to perform this action at the end of your Movement phase if it is within 6\" of the centre of the battlefield and no enemy units (excluding AIRCRAFT units) are within 6\" of the centre of the battlefield. This action is completed at the end of your turn.",
       "increment": 3,
       "max": 15,
       "type": "incremental"
     },
     {
-      "name": "Retrieve Octarius Data",
+      "name": "Repair Teleport Homer",
       "category": "Shadow Operations",
-      "description": "If you select this objective, keep a tally of Retrieved Data points; add 1 to that tally each time a unit from your army successfully completes the following action during the battle:\n\nRetrieve Data (Action): One INFANTRY unit (excluding CHARACTER units) from your army can start to perform this action at the end of your Movement phase if it is wholly within a table quarter that has not had a servo-skull retrieved by your army (see below) and it is more then 6\" away from any other table quarter. This action is completed at the end of your turn provided the unit attempting it is still within the same table quarter. If this action is successfully completed, the table quarter is said to have had a servo-skull retrieved by your army. \n\nAt the end of the battle, score 4 victory points if your Retrieved Data tally is 2, score 8 victory points if your tally is 3, or score 12 victory points if your tally is 4.",
-      "increment": 4,
-      "max": 12,
+      "description": "Score 5 victory points each time a unit from your army successfully completes the following action:\n\nRepair Teleport Homer (Action): One INFANTRY unit from your army can start to perform this action at the end of your Movement phase if it is wholly within your opponent's deployment zone. The Action is completed at the end of your next Command phase provided the unit attempting it is still wholly within your opponent's deployment zone.",
+      "increment": 5,
+      "max": 15,
       "type": "incremental"
     },
     {
@@ -807,17 +819,17 @@
       "type": "incremental"
     },
     {
-      "name": "Assassination",
+      "name": "Assassinate",
       "category": "Purge the Enemy",
-      "description": "Score 3 victory points at the end of the battle for each enemy CHARACTER model that is destroyed. If the enemy WARLORD was destroyed during the battle, gain 1 additional victory point.",
-      "increment": 1,
+      "description": "Score 3 victory points at the end of the battle for each enemy CHARACTER model that is destroyed.",
+      "increment": 3,
       "max": 15,
       "type": "incremental"
     },
     {
       "name": "Titan Hunter",
       "category": "Purge the Enemy",
-      "description": "Score 4 victory points at the end of the battle if one enemy TITANIC model is destroyed, 9 victory points if two enemy TITANIC models are destroyed, or 15 victory points if three or more enemy TITANIC models are destroyed.",
+      "description": "Score 10 victory points at the end of the battle if one enemy TITANIC model is destroyed, or 15 victory points if two or more enemy TITANIC models are destroyed.",
       "increment": 1,
       "max": 15,
       "type": "incremental"
@@ -825,40 +837,40 @@
     {
       "name": "Bring It Down",
       "category": "Purge the Enemy",
-      "description": "Score 1 victory point at the end of the battle for each enemy MONSTER or VEHICLE model with a Wounds characteristic of 10 or less that is destroyed, 2 victory points for each enemy MONSTER or VEHICLE model with a Wounds characteristic of between 11-19 that is destroyed, and 3 victory points for each enemy MONSTER or VEHICLE model with a Wounds characteristic of 20 or more that is destroyed.",
+      "description": "Score 2 victory points at the end of the battle for each enemy MONSTER or VEHICLE model with a Wounds characteristic of 10 or less that is destroyed, and 3 victory points for each enemy MONSTER or VEHICLE model with a Wounds characteristic of 11 or more that is destroyed.",
       "increment": 1,
       "max": 15,
+      "type": "incremental"
+    },
+    {
+      "name": "Slay the Warlord",
+      "category": "Purge the Enemy",
+      "description": "Score 6 victory points at the end of the battle if the enemy WARLORD is destroyed.",
+      "increment": 6,
+      "max": 6,
       "type": "incremental"
     },
     {
       "name": "Abhor the Witch",
       "category": "Warpcraft",
-      "description": "You cannot select this secondary objective if your army includes any PSYKER units. Score 3 victory points at the end of the battle for each enemy PSYKER CHARACTER unit that is destroyed, and 2 victory points for every other enemy PSYKER unit that is destroyed.",
+      "description": "You cannot select this secondary objective if your army includes any PSYKER units. Score 5 victory points at the end of the battle for each enemy PSYKER CHARACTER unit that is destroyed, and 3 victory points for every other enemy PSYKER unit that is destroyed.",
       "increment": 1,
       "max": 15,
       "type": "incremental"
     },
     {
-      "name": "Warp Ritual",
+      "name": "Psychic Ritual",
       "category": "Warpcraft",
-      "description": "If you select this objective, keep a tally of Ritual points; add 1 to that tally each time a unit from your army successfully completes the following psychic action during the battle:\n\n Warp Ritual (Psychic Action - Warp Charge 3): One PSYKER CHARACTER unit from your army can attempt to perform this psychic action in your Psychic phase if it is within 6\" of the centre of the battlefield.\n\n At the end of the battle, score 3 victory points if your Ritual tally is 1, score 7 victory points if your tally is 2, or score 12 victory points if your tally is 3 or more.",
+      "description": "Score 15 victory points at the end of the battle if any unit from your army successfully completed the following psychic action 3 times during the battle: \n\nPsychic Ritual (Psychic Action - Warp Charge 3): One PSYKER CHARACTER unit from your army can attempt to perform this psychic action in your Psychic phase if it is within 6\" of the centre of the battlefield.",
       "increment": 1,
       "max": 15,
       "type": "incremental"
     },
     {
-      "name": "Pierce the Veil",
+      "name": "Mental Interrogation",
       "category": "Warpcraft",
-      "description": "Score 8 victory points at the end of the battle if one or more units from your army successfully completed the following psychic action 2 or more times during the battle, or 15 victory points at the end of the battle if one or more units from your army successfully completed the following psychic action 4 times during the battle (note that you can only score this objective once): \n\nPierce the Veil (Psychic Action - Warp Charge 4): One PSYKER CHARACTER unit from your army can attempt to perform this psychic action during your Psychic phase if it is within 6\" of your opponent’s battlefield edge and more than 6\" from any enemy models.",
-      "increment": 1,
-      "max": 15,
-      "type": "incremental"
-    },
-    {
-      "name": "Psychic Interrogation",
-      "category": "Warpcraft",
-      "description": "Score 3 victory points each time you successfully complete the following psychic action:\n\nPsychic Interrogation (Psychic Action - Warp Charge 4): One PSYKER CHARACTER unit from your army can attempt to perform this psychic action in your Psychic phase if it is within 24\" of any visible enemy CHARACTER models.",
-      "increment": 1,
+      "description": "Score 3 victory points each time you successfully complete the following psychic action: \n\nMental Interrogation (Psychic Action - Warp Charge 4): One PSYKER CHARACTER from your army can attempt to perform this psychic action in your Psychic phase if it is within 18\" of any enemy CHARACTER models.",
+      "increment": 3,
       "max": 15,
       "type": "incremental"
     }
