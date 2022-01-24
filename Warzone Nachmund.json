@@ -1,6 +1,5 @@
 {
   "missions" : {
-    "Incursion": [],
     "Strike Force": [{
       "name": "Secure Missing Artifacts",
       "max": 45,
