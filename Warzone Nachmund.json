@@ -1,18 +1,6 @@
 {
   "missions" : {
     "Strike Force": [{
-      "name": "Secure Missing Artifacts",
-      "max": 45,
-      "maxEachRound": 15,
-      "firstScorableTurn": 1,
-      "maxRounds": 5,
-      "objectives": [
-        {"name": "Hold 1+", "description": "Hold at least one objective", "value": 4, "type": "fixed", "firstScorableTurn": 2},
-        {"name": "Hold 2+", "description": "Hold at least two objectives", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
-        {"name": "Hold More", "description": "Hold more objectives than  your opponent", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
-        {"name": "Bonus", "description": "Precious Artifacts: At the end of each player’s turn, the player whose turn it is scores 3 victory points if they control the Priority objective marker that is in their own territory", "value": 3, "type": "fixed", "firstScorableTurn": 1}
-        ]
-    },{
       "name": "Recover the Relics",
       "max": 45,
       "maxEachRound": 15,
@@ -23,6 +11,102 @@
         {"name": "Hold 2+", "description": "Hold at least two objectives", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
         {"name": "Hold More", "description": "Hold more objectives than  your opponent", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
         {"name": "Bonus", "description": "Break Them, Body and Soul: At the end of each battle round, each player scores 1 victory point for each enemy unit that was destroyed during that battle round (to a maximum of 3 victory points per player per battle round). A unit can, if it is destroyed and resurrected for any reason (i.e. it was destroyed and subsequently returned to the battlefield), potentially count as having been destroyed several times for the purposes of this primary objective (assuming it is resurrected and subsequently destroyed several times over during the same battle round).", "max": 3, "increment": 1, "type": "incremental", "firstScorableTurn": 1}
+        ]
+    },{
+      "name": "Tear Down Their Icons",
+      "max": 45,
+      "maxEachRound": 15,
+      "firstScorableTurn": 1,
+      "maxRounds": 5,
+      "objectives": [
+        {"name": "Hold 1+", "description": "Hold at least one objective", "value": 4, "type": "fixed", "firstScorableTurn": 2},
+        {"name": "Hold 2+", "description": "Hold at least two objectives", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Hold More", "description": "Hold more objectives than  your opponent", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Bonus", "description": "Detonation: At the end of the battle, each player scores 4 victory points for each Primed Explosives objective marker that is within their opponent's territory (to a maximum of 15 victory points", "max": 15, "increment": 4, "type": "incremental", "firstScorableTurn": 5}
+        ]
+    },{
+      "name": "Data-Scry Salvage",
+      "max": 45,
+      "maxEachRound": 15,
+      "firstScorableTurn": 1,
+      "maxRounds": 5,
+      "objectives": [
+        {"name": "Hold 2+", "description": "Hold at least one objective", "value": 4, "type": "fixed", "firstScorableTurn": 2},
+        {"name": "Hold 3+", "description": "Hold at least two objectives", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 2+"},
+        {"name": "Hold More", "description": "Hold more objectives than  your opponent", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 2+"},
+        {"name": "Bonus", "description": "Data Intercept: Each time a unit from your army successfully completes the Data Intercept action, you score a number of victory points equal to the number of objective markers you currently control that are in no man's land, to a maximum of 3", "max": 3, "increment": 1, "type": "incremental", "firstScorableTurn": 1}
+        ]
+    },{
+      "name": "Abandoned Sanctuaries",
+      "max": 45,
+      "maxEachRound": 15,
+      "firstScorableTurn": 1,
+      "maxRounds": 5,
+      "objectives": [
+        {"name": "Hold 1+", "description": "Hold at least one objective", "value": 4, "type": "fixed", "firstScorableTurn": 2},
+        {"name": "Hold 2+", "description": "Hold at least two objectives", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Hold More", "description": "Hold more objectives than  your opponent", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Bonus", "description": "Secure the Sanctuaries: At the end of each player's turn, the player who's turn it is scores 2 victory points if they satisfy at least one of the following conditions: \n\n* They control the objective marker in the center of the battlefield. * They destroyed at least one enemy unit that was within 6\" of the the centre of the battlefield at the start of their turn.\n\n At the end of the battle, whichever player controls the objective marker in the center of the battlefield scores 5 victory points", "max": 7, "increment": 2, "type": "incremental", "firstScorableTurn": 1}
+        ]
+    },{
+      "name": "Conversion",
+      "max": 45,
+      "maxEachRound": 15,
+      "firstScorableTurn": 1,
+      "maxRounds": 5,
+      "objectives": [
+        {"name": "Hold 1+", "description": "Hold at least one objective", "value": 4, "type": "fixed", "firstScorableTurn": 2},
+        {"name": "Hold 2+", "description": "Hold at least two objectives", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Hold More", "description": "Hold more objectives than  your opponent", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Bonus", "description": "Corrupted Ground: At the end of each playe'rs turn, the player who's turn it is: \n * Scores 4 victory points if they control the objective marker in their opponent's deployment zone \n * Scores 2 victory points if they control one or more objective marker in no man's land\n * Loses 1 victory point if they do not control the objective marker in their own deployment zone. \n\n A player's victory point score can never be reduced to less than 0.", "max": 6, "min": -1, "increment": 1, "type": "incremental", "firstScorableTurn": 1}
+        ]
+    },{
+      "name": "The Scouring",
+      "max": 45,
+      "maxEachRound": 15,
+      "firstScorableTurn": 1,
+      "maxRounds": 5,
+      "objectives": [
+        {"name": "Hold 1+", "description": "Hold at least one objective", "value": 4, "type": "fixed", "firstScorableTurn": 2},
+        {"name": "Hold 2+", "description": "Hold at least two objectives", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Hold More", "description": "Hold more objectives than  your opponent", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Bonus", "description": "At the end of the battle, each player scores 3 victory points for each objective marker that has been scanned by their army.", "max": 3, "increment": 3, "type": "incremental", "firstScorableTurn": 1}
+        ]
+    },{
+      "name": "Tide of Conviction",
+      "max": 45,
+      "maxEachRound": 15,
+      "firstScorableTurn": 1,
+      "maxRounds": 5,
+      "objectives": [
+        {"name": "Hold 2+", "description": "Hold at least one objective", "value": 4, "type": "fixed", "firstScorableTurn": 2},
+        {"name": "Hold 3+", "description": "Hold at least two objectives", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 2+"},
+        {"name": "Hold More", "description": "Hold more objectives than  your opponent", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 2+"},
+        {"name": "Bonus", "description": "Overrun: At the end of each player's first, second, third, and fourth turn, the player whose turn it is scores 2 victory points if they control at least one objective marker in their opponent's territory.  At the end of the battle, each player scores 4 victory points if they control the objective marker in their opponent's deployment zone, and 2 victory points for each other objective marker that they control in their opponent's territory (for a maximum of 8 victory points per player)", "max": 8, "increment": 2, "type": "incremental", "firstScorableTurn": 1}
+        ]
+    },{
+      "name": "Death and Zeal",
+      "max": 45,
+      "maxEachRound": 15,
+      "firstScorableTurn": 1,
+      "maxRounds": 5,
+      "objectives": [
+        {"name": "Hold 1+", "description": "Hold at least one objective", "value": 4, "type": "fixed", "firstScorableTurn": 2},
+        {"name": "Hold 2+", "description": "Hold at least two objectives", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Hold More", "description": "Hold more objectives than  your opponent", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Bonus", "description": "Direct Assault: At the end of each player's turn, the player whose turn it. isscores 2 victory points if they satisfy one of the following conditions, or 3 victory points if they satisfy both of the following conditions: \n\n * They control every objective marker. onthe battlefield or they control at least one objective marker that they did not control at the start of their turn. \n\n * They destroyed at least one enemy unit that was in range of an objective marker at the start of their turn.", "max": 3, "increment": 1, "type": "incremental", "firstScorableTurn": 1}
+        ]
+    },{
+      "name": "Secure Missing Artifacts",
+      "max": 45,
+      "maxEachRound": 15,
+      "firstScorableTurn": 1,
+      "maxRounds": 5,
+      "objectives": [
+        {"name": "Hold 1+", "description": "Hold at least one objective", "value": 4, "type": "fixed", "firstScorableTurn": 2},
+        {"name": "Hold 2+", "description": "Hold at least two objectives", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Hold More", "description": "Hold more objectives than  your opponent", "value": 4, "type": "fixed", "firstScorableTurn": 2, "dependsOn":"Hold 1+"},
+        {"name": "Bonus", "description": "Precious Artifacts: At the end of each player’s turn, the player whose turn it is scores 3 victory points if they control the Priority objective marker that is in their own territory", "value": 3, "type": "fixed", "firstScorableTurn": 1}
         ]
     }]
   },

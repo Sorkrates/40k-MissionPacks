@@ -1,0 +1,1049 @@
+-- integration
+EXTERNAL_START_BUTTON_GUID = nil
+
+-- constants
+PLAYER_1_TOTAL_ID="totalScore|1"
+PLAYER_2_TOTAL_ID="totalScore|2"
+LEFT_MOUSE=-1
+RIGHT_MOUSE=-2
+NEXT = 1
+PREVIOUS = -1
+IS_DEBUG=false
+-- objType, name, round, player
+OBJECTIVE_ID_FORMAT="%s|%s|%d|%d"
+
+OBJECTIVE_TYPE_FIXED = "fixed"
+OBJECTIVE_TYPE_INCREMENTAL = "incremental"
+PRIMARY = "primary"
+SECONDARY = "secondary"
+REPO_URL = "https://raw.githubusercontent.com/Sorkrates/40k-MissionPacks/main/"
+PACKS = "packs.json"
+
+-- defaults
+defaultSettings = {
+  packet = {
+    name = "Warzone Nachmund",
+    players = {
+      "Red",
+      "Blue"
+    },
+  },
+  scoring = {
+    maxRounds = 5,
+    maxScore = 100,
+    minScore=10,
+    primary = {
+      mission = "Secure Missing Artifacts",
+      max = 45,
+      maxEachRound = 15,
+      firstScorableTurn = 1,
+      objectives = {
+        {name = "Hold 1+", description = "Hold at least one objective", value = 4, type = "fixed", firstScorableTurn=2},
+        {name = "Hold 2+", description = "Hold at least two objectives", value = 4, type = "fixed", dependsOn="Hold 1+", firstScorableTurn=2},
+        {name = "Hold More", description = "Hold more objectives than your opponent", value = 4, type = "fixed", dependsOn="Hold 1+", firstScorableTurn=2},
+        {name = "Bonus",
+            description = "Precious Artifacts: At the end of each player’s turn, the player whose turn it is scores 3 victory points if they control the Priority objective marker that is in their own territory",
+            increment = 1, max = 3, type = "incremental", firstScorableTurn=1}
+            }
+        }
+    }
+}
+
+missionPacks = {
+    ["Eternal War"] = {},
+    ["GT 2020"] = {},
+    ["GT 2021"] = {},
+    ["Warzone Nachmund"] = {
+        missions = {
+            ["Strike Force"] = {
+                {
+                  name = "Secure Missing Artifacts",
+                  max = 45,
+                  maxEachRound = 15,
+                  firstScorableTurn = 1,
+                  maxRounds=5,
+                  objectives = {
+                    {name = "Hold 1+", description = "Hold at least one objective", value = 4, type = "fixed", firstScorableTurn=2},
+                    {name = "Hold 2+", description = "Hold at least two objectives", value = 4, type = "fixed", dependsOn="Hold 1+", firstScorableTurn=2},
+                    {name = "Hold More", description = "Hold more objectives than your opponent", value = 4, type = "fixed", dependsOn="Hold 1+", firstScorableTurn=2},
+                    {name = "Bonus",
+                        description = "Precious Artifacts: At the end of each player’s turn, the player whose turn it is scores 3 victory points if they control the Priority objective marker that is in their own territory",
+                        value = 3, type = "fixed", firstScorableTurn=1}
+                        }
+                },
+                {
+                  name = "Recover the Relics",
+                  max = 45,
+                  maxEachRound = 15,
+                  firstScorableTurn = 1,
+                  maxRounds=5,
+                  objectives = {
+                    {name = "Hold 1+", description = "Hold at least one objective", value = 4, type = "fixed", firstScorableTurn=2},
+                    {name = "Hold 2+", description = "Hold at least two objectives", value = 4, type = "fixed", dependsOn="Hold 1+", firstScorableTurn=2},
+                    {name = "Hold More", description = "Hold more objectives than your opponent", value = 4, type = "fixed", dependsOn="Hold 1+", firstScorableTurn=2},
+                    {name = "Bonus",
+                        description = "Break Them, Body and Soul: At the end of each battle round, each player scores 1 victory point for each enemy unit that was destroyed during that battle round (to a maximum of 3 victory points per player per battle round). A unit can, if it is destroyed and resurrected for any reason (i.e. it was destroyed and subsequently returned to the battlefield), potentially count as having been destroyed several times for the purposes of this primary objective (assuming it is resurrected and subsequently destroyed several times over during the same battle round).",
+                        increment = 1, max = 3, type = "incremental", firstScorableTurn=1}
+                        }
+                    }
+            }
+        },
+        secondaries = { -- TODO: figure out how to include faction-specific ones
+                {
+                    name = "Engage on All Fronts",
+                    category="Battlefield Supremacy",
+                    description = "Score 2 victory points at the end of your turn if you have one or more units from your army wholly within three different table quarters, and those units are all more than 6\" from the centre of the battlefield. Score 3 victory points instead if you have one or more units from your army wholly within each table quarter, and those units are all more than 6\" from the centre of the battlefield.",
+                    increment = 1, max = 15, type = "incremental"
+                },{
+                    name = "Behind Enemy Lines",
+                    category="Battlefield Supremacy",
+                    description="Score 2 victory points at the end of your turn if one unit from your army (excluding AIRCRAFT units) is wholly within your opponent’s deployment zone. Score 4 victory points at the end of your turn instead if two or more units from your army (excluding AIRCRAFT units) are wholly within your opponent’s deployment zone.",
+                    increment = 3, max = 15, type="incremental"
+                },{
+                    name = "Stranglehold",
+                    category="Battlefield Supremacy",
+                    description="Score 3 victory points at the end of your turn if you control 3 or more objective markers and you also control more objective marker than your opponent controls.",
+                    increment = 3, max = 15, type="incremental"
+                },{
+                    name = "No Prisoners",
+                    category="No Mercy, No Respite",
+                    description="If you select this objective, keep a tally of kill points. Each time an enemy model is destroyed, unless that model is a VEHICLE, MONSTER or CHARACTER, add a number of marks to this tally equal to the Wounds characteristic of the destroyed model. A model can, if it is resurrected for any reason (i.e. it was destroyed and subsequently returned to the battlefield), potentially have marks added to this tally several times (assuming it is resurrected and subsequently destroyed several times over). At the end of the battle, divide your kill points tally by 10 and round down - the result is the number of victory points you score.",
+                    increment = 1, max = 15, type="incremental"
+                },{
+                    name = "Grind Them Down",
+                    category="No Mercy, No Respite",
+                    description="Score 3 victory points at the end of the battle round if more enemy units than friendly units were destroyed this battle round.",
+                    increment = 3, max = 15, type="incremental"
+                },{
+                    name = "To The Last",
+                    category="No Mercy, No Respite",
+                    description="If you select this objective, then before the battle, after you have selected deployment zones, identify which three units from your army (excluding those with the Fortifications Battlefield Role) have the highest points value, and make a note of them on your army roster (if two or more are tied, you choose between them). If your army has three or fewer units, you instead identify all the units in your army. A unit’s points value includes the points of all weapons, other wargear and upgrades it has. You score 5 victory points for each of these units that are on the battlefield at the end of the battle. If a unit splits into several smaller units during a battle, all of those separate units (excluding DRONE units) must be on the battlefield at the end of the battle to score 5 victory points; if some of those separate units (excluding DRONE units) are on the battlefield at the end of the battle, but not all of them are, you score 3 victory points instead of 5.",
+                    increment = 3, max = 15, type="incremental"
+                },{
+                    name = "Retrieve Nachmund Data",
+                    category="Shadow Operations",
+                    description="blah blah blah",
+                    increment = 4, max = 12, type="incremental"
+                }
+                -- ,{
+                --     name = "",
+                --     category="",
+                --     description="",
+                --     increment = 3, max = 15, type="incremental"
+                -- }
+        }
+    }
+}
+
+settings = {}
+ScoreBoard = {
+    missionPacks = {"Warzone Nachmund"},
+    selectedMissionPack = "Warzone Nachmund",
+    selectedMissionIndex = 1,
+    selectedMissionScale = "Strike Force",
+    missionLocked = false,
+    scores = {
+        { primary= {}, secondary= {} }, -- player 1
+        { primary= {}, secondary= {} }  -- player 2
+    }
+}
+
+-- tracking requests
+pendingRequests = 0
+
+function ScoreBoard:getSelectedMission()
+    missionPack = missionPacks[self.selectedMissionPack]
+    if missionPack == nil then return nil end
+    if missionPack.missions[self.selectedMissionScale] == nil then return nil end
+
+    local missionCount = #missionPack.missions[self.selectedMissionScale]
+    local index = self.selectedMissionIndex > 0 and self.selectedMissionIndex <= missionCount and self.selectedMissionIndex or 1
+    return missionPack.missions[self.selectedMissionScale][index]
+end
+
+function ScoreBoard:addPrimary(objective, round, player)
+    self.scores[player].primary[round] = self.scores[player].primary[round] or {}
+    if round >= objective.firstScorableTurn then
+        if self.scores[player].primary[round][objective.name] == nil then
+            self.scores[player].primary[round][objective.name] = objective
+        end
+    end
+end
+
+function ScoreBoard:scorePrimary(objectiveId)
+    local objType, objName, round, player = unpackId(objectiveId)
+    local objective = self.scores[player].primary[round][objName]
+    local mission = ScoreBoard:getSelectedMission()
+
+    objective.score = objective.score or 0
+    local incrementTotalBy = 0
+
+    if objective.type == OBJECTIVE_TYPE_FIXED then
+        incrementTotalBy = objective.value
+        objective.score = objective.value
+    elseif objective.type == OBJECTIVE_TYPE_INCREMENTAL then
+        local originalScore = objective.score
+        objective.score = math.min(objective.score + objective.increment, objective.max)
+        incrementTotalBy = objective.score - originalScore
+    end
+
+    self.scores[player].primary[round][objective.name] = objective
+
+    updateView()
+end
+
+function ScoreBoard:unscorePrimary(objectiveId)
+    local objType, objName, round, player = unpackId(objectiveId)
+    local objective = self.scores[player].primary[round][objName]
+    local mission = ScoreBoard:getSelectedMission()
+    local decrementBy = 0
+
+    if objective.type == OBJECTIVE_TYPE_FIXED then
+        decrementBy = objective.value
+
+    elseif objective.type == OBJECTIVE_TYPE_INCREMENTAL then
+        decrementBy = objective.increment
+    end
+
+    objective.score = math.max(objective.score - decrementBy, 0)
+    self.scores[player].primary[round][objective.name] = objective
+
+    updateView()
+    return objective.score
+end
+
+function ScoreBoard:scoreSecondary(objectiveId)
+    local type, name, index, player = unpackId(objectiveId)
+    local current = self.scores[player].secondary[index]
+    local incrementBy = current.increment
+    local score = current.score
+    score = math.min(score + incrementBy, current.max)
+
+    self.scores[player].secondary[index].score = score
+    updateView()
+    return score
+end
+
+function ScoreBoard:unscoreSecondary(objectiveId)
+    local type, name, index, player = unpackId(objectiveId)
+    local current = self.scores[player].secondary[index]
+    local incrementBy = current.increment
+    local score = current.score
+    score = math.max(score - incrementBy, 0)
+
+    self.scores[player].secondary[index].score = score
+    updateView()
+    return score
+end
+
+function ScoreBoard:getTotalForPlayer(player)
+    local scores = self.scores
+    local total = 0
+    -- might be less efficient than just storing the totals; might not matter
+    for round, primaries in ipairs(scores[player].primary) do
+        for name, primary in pairs(primaries) do
+            if primary.score ~= nil then
+                total = total + primary.score
+            end
+        end
+    end
+    for i, secondary in ipairs(scores[player].secondary) do
+        if secondary.score ~= nil then
+            total = total + secondary.score
+        end
+    end
+    total = total + 10 -- hardcode paint score for now
+    return total
+end
+
+function ScoreBoard:setMissionLocked(locked)
+    self.missionLocked=locked
+    -- ScoreBoard:clearScores()
+    refresh()
+end
+
+function updateView()
+    local scores = ScoreBoard.scores
+    local mission = ScoreBoard:getSelectedMission()
+    if mission == nil then return end
+    for player in ipairs(scores) do
+        for round, primaries in pairs(scores[player].primary) do
+            if primaries ~= nil then
+                updatePrimaryView(player, round, primaries)
+            end
+        end
+        for index, secondary in ipairs(scores[player].secondary) do
+            -- TODO: update the title of each secondary as well
+            local secondaryId = buildId("secondary", "score", index, player)
+            local secondaryName = buildId("secondary", "name", index, player)
+            self.UI.setAttribute(secondaryId, "text", secondary.score)
+            self.UI.setAttribute(secondaryName, "text", secondary.name)
+        end
+    end
+
+    self.UI.setAttribute(PLAYER_1_TOTAL_ID, "text", ScoreBoard:getTotalForPlayer(1))
+    self.UI.setAttribute(PLAYER_2_TOTAL_ID, "text", ScoreBoard:getTotalForPlayer(2))
+end
+
+function updatePrimaryView(player, round, primaries)
+    local subtotal = 0
+    local subtotalId = getSubtotalViewId(round, player)
+
+    for name, primary in pairs(primaries) do
+        local id = buildPrimaryId(name, round, player)
+        local text = ''
+        primary.score = primary.score or 0
+
+        if primary.type == OBJECTIVE_TYPE_FIXED then
+            if primary.score > 0 then
+                text = 'X'
+            else
+                text = ''
+            end
+        elseif primary.type == OBJECTIVE_TYPE_INCREMENTAL then
+            text = primary.score
+        end
+        self.UI.setAttribute(id, "text", text)
+        subtotal = subtotal + primary.score
+    end
+    self.UI.setAttribute(subtotalId, "text", subtotal)
+end
+
+function ScoreBoard:setSecondary(index, objective, player)
+    self.scores[player].secondary[index] = objective
+    self.scores[player].secondary[index].score = 0
+    updateView()
+end
+
+function ScoreBoard:shiftSecondaryForPlayer(player, currentSecondaryName, direction)
+    direction = direction or 1
+    currentSecondaryName = currentSecondaryName or ""
+    local currentSecondary = first(self.scores[player].secondary, "name", currentSecondaryName)
+    local availableSecondaries = ScoreBoard:getAvailableSecondariesForPlayer(player, currentSecondary)
+
+    table.insert(availableSecondaries, 1, {name= "", category="" })
+
+    local currentIndex = findIndexOfKeyValue(availableSecondaries, currentSecondaryName, "name")
+    local nextIndex = findLoopingIndex(currentIndex, direction, #availableSecondaries)
+
+    return availableSecondaries[nextIndex]
+end
+
+function ScoreBoard:getAvailableSecondariesForPlayer(player, currentSecondary)
+    local availableSecondaries = clone(missionPacks[self.selectedMissionPack].secondaries)
+    -- insert mission one first
+    local mission = ScoreBoard:getSelectedMission()
+    if mission.secondary then
+        table.insert(availableSecondaries, 1, mission.secondary)
+    end
+    local playerSecondaries = self.scores[player].secondary
+    local categories = getValues(playerSecondaries, "category")
+
+    if currentSecondary then
+        -- pull the current secondary's category out of the categories array so that you can change it to another available
+        categories = filter(categories, "category", currentSecondary, function(current, key, value)
+            return value ~= current.category
+        end)
+    end
+
+    availableSecondaries = filter(availableSecondaries, "category", categories)
+
+    return availableSecondaries
+end
+
+function ScoreBoard:getScalesForCurrentMissionPack()
+    local scales = {}
+    local pack = missionPacks[ScoreBoard.selectedMissionPack]
+    for k,_ in pairs(pack.missions) do
+        table.insert(scales, k)
+    end
+    return scales
+end
+
+function ScoreBoard:shiftMissionPack(direction)
+    local index = indexOf(ScoreBoard.missionPacks, ScoreBoard.selectedMissionPack)
+    local packCount = #ScoreBoard.missionPacks
+    local newMissionPackIndex = findLoopingIndex(index, direction, packCount)
+
+    ScoreBoard.selectedMissionPack = ScoreBoard.missionPacks[newMissionPackIndex]
+    ScoreBoard.selectedMissionIndex = 1
+    ScoreBoard.selectedMissionScale = ScoreBoard:getScalesForCurrentMissionPack()[1]
+    ScoreBoard:clearScores()
+    refresh()
+end
+
+function ScoreBoard:shiftMissionScale(direction)
+    local scales = ScoreBoard:getScalesForCurrentMissionPack()
+    local currentIndex = indexOf(scales, ScoreBoard.selectedMissionScale)
+    local newScaleIndex = findLoopingIndex(currentIndex, direction, #scales)
+
+    ScoreBoard.selectedMissionScale = scales[newScaleIndex]
+    ScoreBoard:clearScores()
+    refresh()
+end
+
+function ScoreBoard:shiftMission(direction)
+    local index = ScoreBoard.selectedMissionIndex
+    local missions = missionPacks[ScoreBoard.selectedMissionPack].missions[ScoreBoard.selectedMissionScale]
+    local newMissionIndex = findLoopingIndex(index, direction, #missions)
+    ScoreBoard.selectedMissionIndex = newMissionIndex
+    ScoreBoard.clearScores()
+    refresh()
+end
+
+function ScoreBoard:clearScores()
+    ScoreBoard.scores = {
+        { primary= {}, secondary= {} }, -- player 1
+        { primary= {}, secondary= {} }  -- player 2
+    }
+end
+
+function onLoad(script_state)
+    settings = defaultSettings -- todo: consider pulling these from elsewhere
+    if script_state ~= nil and script_state ~= '' then
+        local state = JSON.decode(script_state)
+        ScoreBoard.selectedMissionPack = state.selectedMissionPack or ScoreBoard.selectedMissionPack
+        ScoreBoard.selectedMissionIndex = state.selectedMissionIndex or ScoreBoard.selectedMissionIndex
+        ScoreBoard.selectedMissionScale = state.selectedMissionScale or ScoreBoard.selectedMissionScale
+        ScoreBoard.missionLocked = state.missionLocked or ScoreBoard.missionLocked
+        ScoreBoard.scores = state.scores or ScoreBoard.scores
+    end
+    loadMissions(refresh)
+end
+
+function onSave()
+    state = {
+        selectedMissionPack = ScoreBoard.selectedMissionPack,
+        selectedMissionIndex = ScoreBoard.selectedMissionIndex,
+        selectedMissionScale = ScoreBoard.selectedMissionScale,
+        missionLocked = ScoreBoard.missionLocked,
+        scores = ScoreBoard.scores
+    }
+    return JSON.encode(state)
+end
+
+function loadMissions(oncomplete)
+    pendingRequests = 1
+    WebRequest.get(REPO_URL..PACKS, function(request)
+        pendingRequests = 0
+        if request.is_error then
+            handleError(request.error)
+        else
+            local packs = JSON.decode(request.text)
+            ScoreBoard.missionPacks = packs
+            for i, name in ipairs(packs) do
+                loadMissionPack(name, oncomplete)
+            end
+        end
+    end)
+end
+
+function loadMissionPack(name, onAllComplete)
+    pendingRequests = pendingRequests + 1
+    WebRequest.get(REPO_URL..name..".json", function(request)
+        pendingRequests = math.max(pendingRequests - 1, 0)
+
+        if request.is_error then
+            handleError(request.error)
+        else
+            missionPacks[name] = JSON.decode(request.text)
+            if pendingRequests == 0 then
+                onAllComplete()
+            end
+        end
+    end)
+end
+
+function refresh()
+    local uiTable = buildUITable()
+    self.UI.setXmlTable(uiTable)
+    -- need to wait until the UI is actually loaded before loading the state
+    Wait.time(updateView, .25, 1)
+end
+
+-- start UI Building
+function buildUITable()
+    local uiTable = {}
+    local layout = {
+        tag="VerticalLayout",
+        attributes={
+            position="0 0 -5",
+            height=2400,
+            width=1600,
+            padding=20,
+            spacing=20,
+            color="rgba(0.2,0.2,0.2,1.0)",
+            flexibleHeight=0
+        },
+        children={}
+    }
+
+    if ScoreBoard.missionLocked then
+        buildScoreSheet(layout)
+    else
+        buildMissionSetup(layout)
+    end
+    table.insert(uiTable, layout)
+    return uiTable
+end
+
+function buildScoreSheet(layout)
+    table.insert(layout.children, buildPlayerInfo())
+    table.insert(layout.children, buildMissionInfo())
+    table.insert(layout.children, buildPrimaryLayout())
+    table.insert(layout.children, buildSecondaryLayout())
+    table.insert(layout.children, buildGrandTotal())
+    if IS_DEBUG then
+        table.insert(layout.children, buildResetButton())
+    end
+end
+
+function buildMissionSetup(layout)
+    table.insert(layout.children, buildPlayerInfo())
+    table.insert(layout.children, buildMissionSelector())
+    table.insert(layout.children, buildSecondaryLayout())
+    table.insert(layout.children, buildMissionLockButton())
+end
+
+function buildMissionLockButton()
+    return {
+        tag = "Button",
+        value="Done",
+        attributes={
+            onClick="lockMission",
+            resizeTextForBestFit=true,
+            resizeTextmaxSize=200
+        }
+    }
+end
+
+function buildPlayerInfo()
+    return {
+        tag = "HorizontalLayout",
+        attributes={
+            spacing=50
+        },
+        children={
+            { tag="Button", value="Red", attributes={id="playerButton|1", resizeTextForBestFit=true, resizeTextMaxSize=300, onClick="assignPlayer"} },
+            { tag="Button", value="Blue", attributes={id="playerButton|2", resizeTextForBestFit=true, resizeTextMaxSize=300, onClick="assignPlayer"} }
+        }
+    }
+end
+
+function buildMissionSelector()
+    local missionSelector = {
+        tag = "VerticalLayout",
+        attributes={
+            padding="200 200 0 0"
+        },
+        children={
+            buildTextTag("Mission Pack"),
+            {tag="Button", value=ScoreBoard.selectedMissionPack, attributes={ resizeTextForBestFit=true, resizeTextMaxSize=300, onClick="scrollMissionPack"}},
+            buildTextTag("Battle Size"),
+            {tag="Button", value=ScoreBoard.selectedMissionScale, attributes={ resizeTextForBestFit=true, resizeTextMaxSize=300, onClick="scrollBattleSize"}},
+            buildTextTag("Mission"),
+            {tag="Button", value=ScoreBoard:getSelectedMission().name, attributes={onClick="scrollMission", resizeTextForBestFit=true, resizeTextMaxSize=300}}
+        }
+    }
+    return missionSelector
+end
+
+function buildMissionInfo()
+    local missionSelector = {
+        tag = "VerticalLayout",
+        attributes={
+            padding="200 200 0 0"
+        },
+        children={
+            buildTextTag(ScoreBoard.selectedMissionPack),
+            buildTextTag(ScoreBoard:getSelectedMission().name)
+        }
+    }
+    return missionSelector
+end
+
+function buildGrandTotal()
+    local layout = {
+        tag="VerticalLayout",
+        children={
+            buildTextTag("TOTAL SCORE"),
+            {
+                tag="HorizontalLayout",
+                attributes={
+                    spacing=600,
+                    padding="200 200 0 0"
+                },
+                children={}
+            }
+        }
+    }
+    for i=1,2,1
+    do
+        scoreBox = {
+            tag="Panel",
+            attributes={
+                color="white"
+            },
+            children={
+                tag="Text",
+                attributes={
+                    text=settings.scoring.minScore,
+                    id='totalScore|'..i,
+                    fontSize=50,
+                    color="black"
+                }
+            }
+        }
+        table.insert(layout.children[2].children,scoreBox)
+    end
+    return layout
+end
+
+function buildResetButton()
+    return {
+        tag = "Button",
+        value = "Reset",
+        attributes = { resizeTextForBestFit=true, resizeTextMaxSize=300, onClick="resetScoreBoard"}
+    }
+end
+
+function buildSecondaryLayout()
+    local secondaryLayout = {
+        tag="VerticalLayout",
+        children={ buildTextTag("Secondary")}
+    }
+    local secondaryScores = buildSecondaryScores()
+    table.insert(secondaryLayout.children, secondaryScores)
+
+    return secondaryLayout
+end
+
+function buildSecondaryScores()
+    local secondaryScores = {
+        tag="HorizontalLayout",
+        attributes={
+            spacing=25
+        },
+        children={
+            {tag="VerticalLayout", attributes={spacing=25}, children={}},
+            {tag="VerticalLayout", attributes={spacing=25},children={}}
+        }
+    }
+    for i=1,3,1
+    do
+        for p=1,2,1
+        do
+            -- pattern is <type>|<index>|<player>
+            secondarySelectorId = 'secondary|selector|'..i..'|'..p
+            secondary = {
+                tag="HorizontalLayout",
+                attributes={
+                    spacing=25
+                },
+                children = {}
+            }
+            selectorButton = {
+                tag="Button",
+                attributes={
+                    id=secondarySelectorId,
+                    resizeTextForBestFit=true, resizeTextMaxSize=100,
+                    onClick='scrollSecondary',
+                    minWidth="400"
+                }
+            }
+
+            if not ScoreBoard.missionLocked then
+                table.insert(secondary.children, selectorButton)
+            else
+                local secondaryNameId = buildId("secondary", "name", i, p)
+                local secondaryName = buildTextTag("Tst", 50, secondaryNameId)
+                secondaryName.attributes.ignoreLayout = true
+                secondaryName.attributes.width="75%"
+                secondaryName.attributes.rectAlignment = "MiddleLeft"
+
+                local incrementor = buildIncrementorButton("secondary", "score", i, p)
+                incrementor.attributes.ignoreLayout=true
+                incrementor.attributes.width="25%"
+                incrementor.attributes.rectAlignment="MiddleRight"
+
+                table.insert(secondary.children, secondaryName)
+                table.insert(secondary.children, incrementor)
+            end
+            table.insert(secondaryScores.children[p].children, secondary)
+        end
+    end
+    return secondaryScores
+end
+
+function buildPrimaryLayout()
+    local primaryLayout = {
+        tag="VerticalLayout",
+        children={ buildTextTag("Primary")}
+    }
+    local primaryScores = buildPrimaryScores()
+    table.insert(primaryLayout.children, primaryScores)
+    return primaryLayout
+end
+
+function buildPrimaryScores()
+    local primaryScores = {
+        tag="VerticalLayout",
+        attributes={
+            flexibleHeight=0
+        },
+        children={}
+    }
+
+    local mission = ScoreBoard:getSelectedMission()
+
+    -- build up each round of primaries
+    for i=mission.firstScorableTurn,mission.maxRounds, 1
+    do
+        if i == mission.firstScorableTurn then
+            objectiveTitleView = buildObjectiveTitles(mission)
+            table.insert(primaryScores.children, objectiveTitleView)
+        end
+        roundTitle = buildTextTag("Battle Round "..i)
+        roundScore = buildRoundScore(i, mission)
+        table.insert(primaryScores.children, roundTitle)
+        table.insert(primaryScores.children, roundScore)
+    end
+    return primaryScores
+end
+
+function buildObjectiveTitles(mission)
+    local objectiveTitles = {
+        tag="HorizontalLayout",
+        attributes={
+            spacing=350,
+            padding = "0 0 0 0"
+        },
+        children={
+            {tag="HorizontalLayout", attributes= {childAlignment="MiddleLeft", spacing=10, padding = "0 0 0 0"}, children={}},
+            {tag="HorizontalLayout", attributes= {childAlignment="MiddleRight", spacing=10, padding = "0 0 0 0"}, children={}}
+        }
+    }
+-- TODO:fix sizing issue; maybe just do the tooltip thing instead.
+    for i, o in ipairs(mission.objectives) do
+        for j=1,2,1 do
+            table.insert(objectiveTitles.children[j].children, buildTextTag(o.name, 35))
+        end
+    end
+
+    for i=1,2,1 do
+        table.insert(objectiveTitles.children[i].children, buildTextTag(" ", 100))
+    end
+
+    return objectiveTitles
+end
+
+function buildRoundScore(round, mission)
+    local roundScore = {
+        tag="HorizontalLayout",
+        attributes={
+            spacing=50
+        },
+        children={
+            {tag="HorizontalLayout", attributes= {spacing=10}, children={}},
+            {tag="HorizontalLayout", attributes= {spacing=10}, children={}}
+        } }
+
+    for k,v in ipairs(mission.objectives) do
+        table.insert(roundScore.children[1].children, buildPrimaryButton(v, round, 1))
+        table.insert(roundScore.children[2].children, buildPrimaryButton(v, round, 2))
+    end
+    local player1SubtotalView = buildSubtotalView(round, 1)
+    local player2SubtotalView = buildSubtotalView(round, 2)
+    table.insert(roundScore.children[1].children, player1SubtotalView)
+    table.insert(roundScore.children[1].children, player2SubtotalView)
+
+    return roundScore
+end
+
+function getSubtotalViewId(round, player)
+    return "subtotal|"..round.."|"..player
+end
+
+function buildSubtotalView(round, player)
+    local id = getSubtotalViewId(round, player)
+    return {
+        tag="Text",
+        attributes={
+            text="0",
+            id=id,
+            color="white",
+            fontSize=75
+        }
+    }
+end
+
+function buildPrimaryButton(objective, round, player)
+    local button = {
+        tag="Panel"
+    }
+    if objective.firstScorableTurn > round
+    then
+        return button
+    end
+
+    if objective.type == "fixed" then -- Consider changing these to ToggleButtons
+        button = {
+            tag="Button",
+            attributes={
+                onClick='togglePrimary',
+                fontSize=75,
+                fontStyle="bold",
+                id=buildPrimaryId(objective.name, round, player),
+                tooltip=objective.name
+            } }
+    else
+        button = buildIncrementorButton("primary", objective.name, round, player)
+    end
+    ScoreBoard:addPrimary(clone(objective), round, player)
+    return button
+end
+
+function buildIncrementorButton(objectiveType, first, second, player)
+    local comboButton = {
+        tag="HorizontalLayout",
+        attributes={
+            flexibleWidth=0,
+            flexibleHeight=0
+        },
+        children={
+            {
+                tag="VerticalLayout",
+                attributes={
+                    spacing=5
+                },
+                children={
+                    {
+                        tag="Button",
+                        attributes={
+                            text="+",
+                            resizeTextForBestFit=true,
+                            id=buildId(objectiveType, first, second, player).."|+",
+                            onClick="increment"
+                        }
+                    },
+                    {
+                        tag="Button",
+                        attributes={
+                            text="-",
+                            resizeTextForBestFit=true,
+                            id=buildId(objectiveType, first, second, player).."|-",
+                            onClick="decrement"
+                        }
+                    }
+                }
+            },
+            {
+                tag="Panel",
+                attributes={
+                    color="white",
+                    minWidth="75"
+                },
+                children={
+                    {
+                        tag="Text",
+                        attributes={
+                            color="black",
+                            text="0",
+                            fontSize=50,
+                            id=buildId(objectiveType, first, second, player)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return comboButton
+end
+
+function buildPrimaryId(name, round, player)
+    return buildId("primary", name, round, player)
+end
+
+function buildId(type, first, second, third)
+    return string.format(OBJECTIVE_ID_FORMAT,type, first, second, third)
+    --return type.."|"..first.."|"..second.."|"..third
+end
+
+function buildTextTag(text, fontSize, id)
+    fontSize = tonumber(fontSize) or 70
+    return {tag="Text", attributes={color="white", fontSize=fontSize, id=id, text=text }}
+end
+-- END UI Building
+
+-- Event Handlers
+function togglePrimary(player, param, id)
+    -- TODO: link primaries to prereqs automatically, e.g. if you can't hold 2+ without Hold 1+, auto select both
+    value = self.UI.getAttribute(id, "text")
+    if value != 'X' then
+        -- value = 'X'
+        ScoreBoard:scorePrimary(id)
+    else
+        -- value = ''
+        ScoreBoard:unscorePrimary(id)
+    end
+end
+
+function resetScoreBoard(player, param, id)
+    ScoreBoard:clearScores()
+    ScoreBoard:setMissionLocked(false)
+end
+
+function scrollSecondary(player, param, id)
+    local ot, o, index, player = unpackId(id)
+    local direction = getDirection(param)
+    local currentText = self.UI.getAttribute(id, "text")
+    local secondary = ScoreBoard:shiftSecondaryForPlayer(player, currentText, direction)
+    ScoreBoard:setSecondary(index, secondary, player)
+    self.UI.setAttribute(id, "text", secondary.name)
+end
+
+function increment(player, param, id)
+    local objType, name, round, player = unpackId(id)
+    local mainId = buildId(objType, name, round, player)
+    local currentValue = tonumber(self.UI.getAttribute(mainId, "text"))
+    local newValue = (objType == PRIMARY and ScoreBoard:scorePrimary(id)) or ScoreBoard:scoreSecondary(id)
+    --self.UI.setAttribute(mainId, "text", newValue)
+end
+
+function decrement(player, param, id)
+    local objType, name, round, player = unpackId(id)
+    local mainId = buildId(objType, name, round, player)
+    local currentValue = tonumber(self.UI.getAttribute(mainId, "text"))
+    local newValue = (objType == PRIMARY and ScoreBoard:unscorePrimary(id)) or ScoreBoard:unscoreSecondary(id)
+    --self.UI.setAttribute(mainId, "text", newValue)
+end
+
+-- TODO: manage player assignment as part of state
+function assignPlayer(player, param, id)
+    name = player.steam_name
+    playerButtonNumber = tonumber(id:match("(%d+)"))
+    otherPlayerButtonNumber = (playerButtonNumber == 1 and 2 or 1)
+    otherButtonId = "playerButton|"..otherPlayerButtonNumber
+    if self.UI.getAttribute(otherButtonId, "text") ~= name then
+        self.UI.setAttribute(id, "text", name)
+    else
+        broadcastToAll("You can only be on one side", Color.fromString("Red"))
+    end
+end
+
+function scrollMission(player, param, id)
+    ScoreBoard:shiftMission(getDirection(param))
+end
+
+function scrollMissionPack(player, param, id)
+    ScoreBoard:shiftMissionPack(getDirection(param))
+end
+
+function scrollBattleSize(player, param, id)
+    ScoreBoard:shiftMissionScale(getDirection(param))
+end
+
+function lockMission(player, param, id)
+    ScoreBoard:setMissionLocked(true)
+end
+
+-- END Event Handlers
+
+-- Utility Functions
+function unpackId(id)
+    local objType, name, round, player = string.match(id, '(%a+)|([^|]+)|(%d+)|(%d+)')
+    round = tonumber(round)
+    player = tonumber(player)
+    return objType, name, round, player
+end
+
+function clone(obj)
+    return JSON.decode(JSON.encode(obj))
+end
+
+function getDirection(param)
+    local direction = 1
+    param = tonumber(param)
+    if param == RIGHT_MOUSE then
+        direction = -direction
+    end
+    return direction
+end
+
+function getValues(arrayOfTables, key)
+    local values = {}
+    arrayOfTables = arrayOfTables or {}
+    for _, o in ipairs(arrayOfTables) do
+        if type(o) == "table" and o[key] ~= nil then
+            table.insert(values, o[key])
+        end
+    end
+    return values
+end
+
+function filter(arrayOfTables, key, values, comparator)
+    local filtered = {}
+    if not key then return arrayOfTables end
+    for i, v in ipairs(arrayOfTables) do
+        if not values or #values == 0 then
+            if v[key] then
+                table.insert(filtered, v)
+            end
+        elseif comparator and comparator(values, key, v) then
+            table.insert(filtered, v)
+        elseif not indexOf(values, v[key]) then
+            table.insert(filtered, v)
+        end
+    end
+    return filtered
+end
+
+function handleError(text)
+    broadcastToAll(text, Color.fromString("Red"))
+end
+
+function findLoopingIndex(current, direction, size)
+    local newIndex = current
+
+    if direction == NEXT and current == size then
+        -- go to the start if we're going next and we're at the end
+        return 1
+    elseif direction == PREVIOUS and current == 1 then
+        -- go to the end if we're going previous and are at the start
+        return size
+    elseif direction ~= PREVIOUS and direction ~= NEXT then
+        -- bad input, stay in place
+        return current
+    else
+        -- just modify the index with the direction
+        return current + direction
+    end
+end
+
+function findIndexOfKeyValue(array, value, key)
+    for i, v in ipairs(array) do
+        if v[key] == value then
+            return i
+        end
+    end
+end
+
+function first(array, key, value)
+    for i, v in ipairs(array) do
+        if v[key] == value then
+            return v
+        end
+    end
+    return nil
+end
+
+function indexOf(array, value, comparator)
+    for i, v in ipairs(array) do
+        if comparator and comparator(v, value) then
+            return i
+        elseif v == value then
+            return i
+        end
+    end
+    return nil
+end
