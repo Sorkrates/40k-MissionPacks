@@ -8,7 +8,7 @@ LEFT_MOUSE=-1
 RIGHT_MOUSE=-2
 NEXT = 1
 PREVIOUS = -1
-IS_DEBUG=false
+
 -- objType, name, round, player
 OBJECTIVE_ID_FORMAT="%s|%s|%d|%d"
 
@@ -205,7 +205,8 @@ function ScoreBoard:unscorePrimary(objectiveId)
         decrementBy = objective.increment
     end
 
-    objective.score = math.max(objective.score - decrementBy, 0)
+    local min = objective.min or 0
+    objective.score = math.max(objective.score - decrementBy, min)
     self.scores[player].primary[round][objective.name] = objective
 
     updateView()
@@ -229,7 +230,9 @@ function ScoreBoard:unscoreSecondary(objectiveId)
     local current = self.scores[player].secondary[index]
     local incrementBy = current.increment
     local score = current.score
-    score = math.max(score - incrementBy, 0)
+    local min = current.min or 0
+
+    score = math.max(score - incrementBy, min)
 
     self.scores[player].secondary[index].score = score
     updateView()
@@ -239,11 +242,14 @@ end
 function ScoreBoard:getTotalForPlayer(player)
     local scores = self.scores
     local total = 0
+    local mission = ScoreBoard:getSelectedMission()
+    mission.max = mission.max or 45
+
     -- might be less efficient than just storing the totals; might not matter
     for round, primaries in ipairs(scores[player].primary) do
         for name, primary in pairs(primaries) do
             if primary.score ~= nil then
-                total = total + primary.score
+                total = math.min(total + primary.score, mission.max)
             end
         end
     end
@@ -258,7 +264,6 @@ end
 
 function ScoreBoard:setMissionLocked(locked)
     self.missionLocked=locked
-    -- ScoreBoard:clearScores()
     refresh()
 end
 
@@ -493,9 +498,7 @@ function buildScoreSheet(layout)
     table.insert(layout.children, buildPrimaryLayout())
     table.insert(layout.children, buildSecondaryLayout())
     table.insert(layout.children, buildGrandTotal())
-    if IS_DEBUG then
-        table.insert(layout.children, buildResetButton())
-    end
+    -- table.insert(layout.children, buildResetButton())
 end
 
 function buildMissionSetup(layout)
@@ -656,7 +659,7 @@ function buildSecondaryScores()
                 table.insert(secondary.children, selectorButton)
             else
                 local secondaryNameId = buildId("secondary", "name", i, p)
-                local secondaryName = buildTextTag("Tst", 50, secondaryNameId)
+                local secondaryName = buildTextTag("", 50, secondaryNameId)
                 secondaryName.attributes.ignoreLayout = true
                 secondaryName.attributes.width="75%"
                 secondaryName.attributes.rectAlignment = "MiddleLeft"
@@ -906,16 +909,22 @@ function increment(player, param, id)
     local objType, name, round, player = unpackId(id)
     local mainId = buildId(objType, name, round, player)
     local currentValue = tonumber(self.UI.getAttribute(mainId, "text"))
-    local newValue = (objType == PRIMARY and ScoreBoard:scorePrimary(id)) or ScoreBoard:scoreSecondary(id)
-    --self.UI.setAttribute(mainId, "text", newValue)
+    if objType == PRIMARY then
+        ScoreBoard:scorePrimary(id)
+    else
+        ScoreBoard:scoreSecondary(id)
+    end
 end
 
 function decrement(player, param, id)
     local objType, name, round, player = unpackId(id)
     local mainId = buildId(objType, name, round, player)
     local currentValue = tonumber(self.UI.getAttribute(mainId, "text"))
-    local newValue = (objType == PRIMARY and ScoreBoard:unscorePrimary(id)) or ScoreBoard:unscoreSecondary(id)
-    --self.UI.setAttribute(mainId, "text", newValue)
+    if objType == PRIMARY then
+        ScoreBoard:unscorePrimary(id)
+    else
+        ScoreBoard:unscoreSecondary(id)
+    end
 end
 
 -- TODO: manage player assignment as part of state

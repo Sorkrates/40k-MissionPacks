@@ -459,19 +459,19 @@
         },
         "objectives": [
           {
-            "name": "Hold 1+",
+            "name": "Hold 2+",
             "description": "Hold at least one objective",
             "value": 5,
             "type": "fixed",
             "firstScorableTurn": 2
           },
           {
-            "name": "Hold 2+",
+            "name": "Hold 3+",
             "description": "Hold at least two objectives",
             "value": 5,
             "type": "fixed",
             "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
+            "dependsOn": "Hold 2+"
           },
           {
             "name": "Hold More",
@@ -479,7 +479,7 @@
             "value": 5,
             "type": "fixed",
             "firstScorableTurn": 2,
-            "dependsOn": "Hold 1+"
+            "dependsOn": "Hold 2+"
           }
         ]
       },
