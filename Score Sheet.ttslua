@@ -217,7 +217,7 @@ function ScoreBoard:scoreSecondary(objectiveId)
     local type, name, index, player = unpackId(objectiveId)
     local current = self.scores[player].secondary[index]
     local incrementBy = current.increment
-    local score = current.score
+    local score = current.score or 0
     score = math.min(score + incrementBy, current.max)
 
     self.scores[player].secondary[index].score = score
@@ -229,7 +229,7 @@ function ScoreBoard:unscoreSecondary(objectiveId)
     local type, name, index, player = unpackId(objectiveId)
     local current = self.scores[player].secondary[index]
     local incrementBy = current.increment
-    local score = current.score
+    local score = current.score or 0
     local min = current.min or 0
 
     score = math.max(score - incrementBy, min)
@@ -262,8 +262,25 @@ function ScoreBoard:getTotalForPlayer(player)
     return total
 end
 
+function ScoreBoard:padSecondaries()
+    local scores = self.scores
+    for player in ipairs(scores) do
+        local customSecondaries = 3 - #scores[player].secondary
+        for i=1,customSecondaries do
+            local custom = {
+                name = "Custom",
+                category="Custom"..i,
+                description="Any old thing you agree with your opponent on",
+                increment = 1, max = 15, type="incremental"
+            }
+            table.insert(scores[player].secondary, custom)
+        end
+    end
+end
+
 function ScoreBoard:setMissionLocked(locked)
     self.missionLocked=locked
+    ScoreBoard:padSecondaries()
     refresh()
 end
 
