@@ -1,6 +1,6 @@
 {
   "rules":[{
-    "missionPack": "WarZone Nachmund",
+    "missionPack": "Warzone Nachmund",
     "exclusive": ["faction"]
   }],
   "secondaries": [
